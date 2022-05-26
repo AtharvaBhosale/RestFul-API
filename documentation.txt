@@ -1,0 +1,43 @@
+This Simple API provides access to an sqlite3 database and runs on NodeJs server
+Express is used to creat server and for routing.
+JWToken used for authentication.
+Sqlite3 database used.
+
+Userdata stores in /data/users.json
+
+Database stored in /data/school.db3
+
+Knex is used to connect with database and query database.
+
+POST: localhost:PORT/login
+Headers:
+    Content-Type :application/json
+Body:
+    {
+        "username":"name",
+        "password":"passcode"
+    }
+Response:
+    [{
+        "token":"some token"
+    }]
+
+All other routes require:
+
+Headers:
+    Content-Type :application/json
+    access-token : valid token
+
+
+POST: localhost:PORT/api/students
+
+Body:{
+    "name":"studentName",
+    "classID":"validClassId"
+}
+
+PATCH: localhost:PORT/api/students/:id
+
+Body:{
+    "name":"newStudentName", // only record to be updated    
+}
